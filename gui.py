@@ -3,6 +3,7 @@ import pygtk
 pygtk.require("2.0")
 import gtk
 import gtk.glade
+import config
 	
 class GuiGTK:
 	def __init__(self):
@@ -18,7 +19,7 @@ class GuiGTK:
 		#self.widgets.get_widget('label1').set_text('test')
 		imgur = "https://api.imgur.com/3/gallery/random/random/1"
 		req = urllib2.Request(imgur);
-		req.add_header('Authorization', 'Client-ID e894f151f3ef156');
+		req.add_header('Authorization', config.client_id);
 		res = urllib2.urlopen(req);
 		data = json.loads(res.read());
 		count = 0;
